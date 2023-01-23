@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Notification from "./Notification.js";
+import { createContext } from "react";
+import { data } from "./mock/flights.js";
+
+export let TransactionContext = createContext();
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TransactionContext.Provider value={data}>
+        <header className="App-header" />
+        <Notification />
+      </TransactionContext.Provider>
     </div>
   );
 }
